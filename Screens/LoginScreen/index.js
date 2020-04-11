@@ -8,6 +8,7 @@ import {
   Platform,
   AsyncStorage,
 } from "react-native";
+import firebase from "firebase";
 
 import { Button, Block, Input, Text } from "../../components";
 import { theme } from "../../constants";
@@ -37,14 +38,8 @@ export default class LoginScreen extends Component {
 
     // check with backend API or with some static data
     try {
-      // let body = new FormData();
-      // body.append("username", email);
-      // body.append("password", password);
-      // let res = await apiCallPost(
-      //   "",
-      //   body
-      // );
-      // console.log(res);
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+
       await AsyncStorage.setItem("token", "logged in");
       this.setState({
         loading: false,

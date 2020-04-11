@@ -13,7 +13,6 @@ import {
 import CoronaImage from "../../assets/home.jpg";
 import axios from "axios";
 import { AntDesign } from "@expo/vector-icons";
-import Chart from "./components/Chart";
 
 const red = "#FC312F";
 const green = "#29AF62";
@@ -37,46 +36,21 @@ export default class Home extends Component {
       refreshing: true,
       loading: true,
     });
-    let res = await axios.get("https://api.covid19india.org/data.json");
-    let { cases_time_series } = res.data;
-    let dataConfirmed = cases_time_series.map((entry) => entry.totalconfirmed);
-    let dataRecovered = cases_time_series.map((entry) => entry.totalrecovered);
-    let dataDeceased = cases_time_series.map((entry) => entry.totaldeceased);
-    let {
-      dailyconfirmed,
-      dailydeceased,
-      dailyrecovered,
-      totalconfirmed,
-      totaldeceased,
-      totalrecovered,
-    } = cases_time_series[cases_time_series.length - 1];
+
+    let newsRes = await axios.get(
+      "https://newsapi.org/v2/top-headlines?country=in&q=corona&apiKey=1a54f1fa7c7741d28b862ba1a32875ef"
+    );
+    let news = newsRes.data.articles;
     this.setState({
-      dataRecovered,
-      dataConfirmed,
-      dataDeceased,
+      news,
+      newsLoaded: true,
       loading: false,
-      totalconfirmed,
-      totaldeceased,
-      dailyconfirmed,
-      dailydeceased,
-      totalrecovered,
-      dailyrecovered,
+
       refreshing: false,
     });
   };
   render() {
-    const {
-      loading,
-      dataConfirmed,
-      dataRecovered,
-      totalconfirmed,
-      totaldeceased,
-      dailyconfirmed,
-      dailydeceased,
-      totalrecovered,
-      dailyrecovered,
-      dataDeceased,
-    } = this.state;
+    const { loading } = this.state;
     if (loading) {
       return (
         <View style={styles.loadingConatiner}>
@@ -100,111 +74,81 @@ export default class Home extends Component {
           <Image source={CoronaImage} style={styles.headerImage} />
 
           <View style={styles.content}>
-            <View style={{ height: height * 0.3 }}>
-              <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
-                <View style={styles.chartsScrollViewContainer}>
-                  {/* ----------- confirmed chart starts here -------------- */}
+            {/* ----------- what to do section starts here -------------- */}
 
-                  <View style={styles.flexStartConatier}>
-                    <Text style={styles.chartTitle}>
-                      {"Total Confirmed "}
-                      <AntDesign color="#FC312F" name="caretup" />
-                    </Text>
-                    <Text style={styles.chartNumbers}>{totalconfirmed}</Text>
-                  </View>
-                  <View style={styles.charts}>
-                    <Chart data={dataConfirmed} color={red} />
-                  </View>
-                </View>
-                {/* ----------- recovered chart starts here -------------- */}
-                <View style={styles.chartContainer}>
-                  <View style={styles.flexStartConatier}>
-                    <Text style={styles.chartTitle}>
-                      {"Total Recovered "}
-                      <AntDesign color="#29AF62" name="caretup" />
-                    </Text>
-                    <Text style={styles.chartNumbers}>{totalrecovered}</Text>
-                  </View>
-                  <View style={styles.charts}>
-                    <Chart data={dataRecovered} color={green} />
-                  </View>
-                </View>
-                {/* ----------- deceased chart starts here -------------- */}
-                <View style={styles.chartContainer}>
-                  <View style={styles.flexStartConatier}>
-                    <Text style={styles.chartTitle}>
-                      {"Total Deceased "}
-                      <AntDesign color="#FC312F" name="caretup" />
-                    </Text>
-                    <Text style={styles.chartNumbers}>{totaldeceased}</Text>
-                  </View>
-                  <View style={styles.charts}>
-                    <Chart data={dataDeceased} color={red} />
-                  </View>
-                </View>
-              </ScrollView>
-            </View>
-            {/* ----------- India new stats starts here -------------- */}
-
-            <View style={styles.moreInfoConatiner}>
-              <Text
-                style={{
-                  opacity: 0.7,
-                  fontSize: 24,
-                  fontWeight: "bold",
-                }}
-              >
-                COVID-19 India Stats
-              </Text>
-
-              <View style={styles.moreInfoInnerConatiner}>
-                <Text style={[styles.moreInfoText, { flex: 2 }]}>
-                  Recently Confirmed
-                </Text>
-                <Text style={[styles.moreInfoText, { color: red }]}>
-                  {dailyconfirmed}
-                </Text>
-              </View>
-              <View style={styles.moreInfoInnerConatiner}>
-                <Text style={[styles.moreInfoText, { flex: 2 }]}>
-                  Recently Recovered
-                </Text>
-                <Text style={[styles.moreInfoText, { color: green }]}>
-                  {dailyrecovered}
-                </Text>
-              </View>
-              <View style={styles.moreInfoInnerConatiner}>
-                <Text style={[styles.moreInfoText, { flex: 2 }]}>
-                  Recently Deceased
-                </Text>
-                <Text style={[styles.moreInfoText, { color: red }]}>
-                  {dailydeceased}
-                </Text>
-              </View>
-              <View style={styles.moreInfoInnerConatiner}>
-                <Text style={[styles.moreInfoText, { textAlign: "right" }]}>
-                  Made by Sunny Dhama
-                </Text>
-              </View>
-            </View>
-            {/* ----------- map starts here -------------- */}
-
-            <View style={styles.mapConatiner}>
+            <Text style={styles.title}>What you should do?</Text>
+            <View style={styles.row}>
               <Image
-                style={styles.mapImage}
-                source={require("../../assets/map.png")}
+                style={styles.imagesPrecaution}
+                source={require("../../assets/01.png")}
+              />
+              <Image
+                style={styles.imagesPrecaution}
+                source={require("../../assets/02.png")}
               />
             </View>
-            {/* ----------- pm donate starts here -------------- */}
-
-            <View style={styles.pmFundsConatiner}>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Wash Hands</Text>
+              <Text style={styles.rowText}>Wear Mask</Text>
+            </View>
+            <View style={styles.row}>
               <Image
-                style={styles.pmFundsImage}
-                source={require("../../assets/pmdonate.png")}
+                style={styles.imagesPrecaution}
+                source={require("../../assets/03.png")}
               />
+              <Image
+                style={styles.imagesPrecaution}
+                source={require("../../assets/04.png")}
+              />
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.rowText}>Use Sanitizers</Text>
+              <Text style={styles.rowText}>Respect Lockdown</Text>
+            </View>
+            <View style={styles.row}>
+              <Image
+                style={styles.imagesPrecaution}
+                source={require("../../assets/05.png")}
+              />
+              <Image
+                style={styles.imagesPrecaution}
+                source={require("../../assets/06.png")}
+              />
+            </View>
+            <View style={styles.imageContainer}>
+              <Text style={styles.rowText}>Prefer Namaste</Text>
+              <Text style={styles.rowText}>Stay Safe</Text>
+            </View>
+            {/* ----------- symptoms starts here -------------- */}
+
+            <Text style={styles.title}>Symptoms</Text>
+
+            <View style={styles.imageContainer}>
+              <Image
+                style={styles.symptomsImage}
+                source={require("../../assets/symptoms.png")}
+              />
+            </View>
+            <View style={styles.imageContainer}>
+              <Image
+                style={[styles.imagesPrecaution, styles.imageSymptoms]}
+                source={require("../../assets/cough.gif")}
+              />
+              <Text style={styles.symptomsText}>Dry Cough</Text>
+            </View>
+            <View style={styles.imageContainer}>
+              <Image
+                style={[styles.imagesPrecaution, styles.imageSymptoms]}
+                source={require("../../assets/fever.gif")}
+              />
+              <Text style={styles.symptomsText}>High Fever</Text>
+            </View>
+            <View style={styles.imageContainer}>
+              <Image
+                style={[styles.imagesPrecaution, styles.imageSymptoms]}
+                source={require("../../assets/breathelessness.gif")}
+              />
+              <Text style={styles.symptomsText}>Difficulty in Breathing</Text>
             </View>
           </View>
         </ScrollView>

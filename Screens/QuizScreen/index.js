@@ -6,7 +6,7 @@ class SavedScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>New Screen</Text>
+        <Text>Quiz Screen</Text>
       </View>
     );
   }

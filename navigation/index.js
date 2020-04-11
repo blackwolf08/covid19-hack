@@ -13,8 +13,8 @@ import { StyleSheet } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 import Home from "../Screens/Home";
-import SavedScreen from "../Screens/SavedScreen";
-import InboxScreen from "../Screens/InboxScreen";
+import InfoScreen from "../Screens/InfoScreen";
+import NewsScreen from "../Screens/NewsScreen";
 import ProfileScreen from "../Screens/ProfileScreen";
 import AppIntroScreen from "../Screens/AppIntroScreen";
 import InitialScreen from "../Screens/InitialScreen";
@@ -22,17 +22,19 @@ import LoginScreen from "../Screens/LoginScreen";
 import Welcome from "../Screens/WelcomeScreen";
 import LiquidSwipe from "../Screens/LiquidSwipe";
 import SignUpScreen from "../Screens/SignUpScreen";
-import WalletScreen from "../Screens/WalletScreen";
+import QuizScreen from "../Screens/QuizScreen";
 
-const ExploreIcon = (style) => <Icon {...style} name="home-outline" />;
+const HomeIcon = (style) => <Icon {...style} name="activity-outline" />;
 
-const SavedIcon = (style) => <Icon {...style} name="refresh-outline" />;
+const InfoIcon = (style) => <Icon {...style} name="info-outline" />;
 
-const InboxIcon = (style) => <Icon {...style} name="info-outline" />;
+const NewsIcon = (style) => <Icon {...style} name="globe-outline" />;
+
+const QuizIcon = (style) => (
+  <Icon {...style} name="checkmark-square-2-outline" />
+);
 
 const ProfileIcon = (style) => <Icon {...style} name="person-outline" />;
-
-const WalletIcon = (style) => <Icon {...style} name="credit-card-outline" />;
 
 const TabBarComponent = ({ navigation }) => {
   const onSelect = (index) => {
@@ -51,10 +53,10 @@ const TabBarComponent = ({ navigation }) => {
           onSelect={onSelect}
           appearance="noIndicator"
         >
-          <BottomNavigationTab icon={ExploreIcon} />
-          <BottomNavigationTab icon={SavedIcon} />
-          <BottomNavigationTab icon={InboxIcon} />
-          <BottomNavigationTab icon={WalletIcon} />
+          <BottomNavigationTab icon={HomeIcon} />
+          <BottomNavigationTab icon={InfoIcon} />
+          <BottomNavigationTab icon={NewsIcon} />
+          <BottomNavigationTab icon={QuizIcon} />
           <BottomNavigationTab icon={ProfileIcon} />
         </BottomNavigation>
       </Layout>
@@ -68,18 +70,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const ExploreStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
-    ExploreScreen: (props) => <Home {...props} />,
+    HomeScreen: (props) => <Home {...props} />,
   },
   {
     headerMode: "none",
   }
 );
 
-const WalletStack = createStackNavigator(
+const QuizStack = createStackNavigator(
   {
-    WalletScreen: (props) => <WalletScreen {...props} />,
+    QuizScreen: (props) => <QuizScreen {...props} />,
   },
   {
     headerMode: "none",
@@ -116,10 +118,10 @@ const AppIntroStack = createStackNavigator(
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Explore: ExploreStack,
-    Saved: (props) => <SavedScreen {...props} />,
-    Inbox: (props) => <InboxScreen {...props} />,
-    Wallet: WalletStack,
+    Home: HomeStack,
+    Info: (props) => <InfoScreen {...props} />,
+    News: (props) => <NewsScreen {...props} />,
+    Quiz: QuizStack,
     Profile: (props) => <ProfileScreen {...props} />,
   },
   {

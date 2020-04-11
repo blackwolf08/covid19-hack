@@ -14,7 +14,7 @@ const API_KEY = "AIzaSyA-BEPYPnVnTggLAhVx9BpwPkqnkLB1Pds";
 
 Location.setApiKey(API_KEY);
 
-export default function App() {
+export default function App(props) {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [coords, setCoords] = useState(null);
@@ -39,6 +39,7 @@ export default function App() {
 
       let address = await Location.reverseGeocodeAsync(coords);
       setAddress(address);
+      props.setLocation(coords, address);
     })();
   }, []);
 
@@ -66,17 +67,7 @@ export default function App() {
     text = JSON.stringify(address);
   }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>{text}</Text>
-      <TouchableOpacity onPress={login}>
-        <Text>Login Anonymously</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={saveToDB}>
-        <Text>Login Anonymously</Text>
-      </TouchableOpacity>
-    </View>
-  );
+  return <></>;
 }
 const styles = StyleSheet.create({
   container: {
