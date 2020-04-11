@@ -20,8 +20,8 @@ class AppIntroScreen extends Component {
   render() {
     const pageArray = [
       {
-        title: 'Taxi!',
-        description: 'Check-in your luggage on the App!',
+        title: 'Welcome!',
+        description: 'An all-in-one Covid19 App',
         img: app_intro_1,
         imgStyle: {
           height: 120 * 2.5,
@@ -33,8 +33,8 @@ class AppIntroScreen extends Component {
         level: 10
       },
       {
-        title: 'Airport Assistance',
-        description: 'Porter, Air-Cab, E-Cart and much more!',
+        title: 'Get Alerted',
+        description: 'Get a risk estimation and alert if you are around someone with high risk of infection',
         img: app_intro_2,
         imgStyle: {
           height: 120 * 2.5,
@@ -46,11 +46,11 @@ class AppIntroScreen extends Component {
         level: 10
       },
       {
-        title: 'Curated Travel Destinations',
-        description: 'Get personalised Destination Packages!',
+        title: 'Get Stats',
+        description: 'Get realtime stats of infection spread around you',
         img: app_intro_3,
         imgStyle: {
-          height: 120 * 2.5,
+          height: 100 * 2.5,
           width: 120 * 2.5,
           resizeMode: 'contain'
         },
@@ -59,12 +59,12 @@ class AppIntroScreen extends Component {
         level: 10
       },
       {
-        title: 'Book Flights, Hotels & Cab',
-        description: 'Best rates and customised recommendations!',
+        title: 'Learn',
+        description: 'Learn about recomended preacautionary measures',
         img: app_intro_4,
         imgStyle: {
-          height: 120 * 2.5,
-          width: 120 * 2.5,
+          height: 90 * 2.5,
+          width: 130 * 3.5,
           resizeMode: 'contain'
         },
         backgroundColor: '#fff',
@@ -72,8 +72,8 @@ class AppIntroScreen extends Component {
         level: 10
       },
       {
-        title: 'Magic Itinerary',
-        description: 'Set and Destination and Date, and let us do the rest!',
+        title: 'Stay Connected',
+        description: 'Get all covid headlines right here',
         img: app_intro_5,
         imgStyle: {
           height: 120 * 2.5,
@@ -85,11 +85,11 @@ class AppIntroScreen extends Component {
         level: 10
       },
       {
-        title: 'Global Presence',
-        description: 'We got you covered in 250+ destinations WorldWide!',
+        title: 'One touch assistance',
+        description: 'Request assisstance if you are at high risk of infection directly from the app',
         img: app_intro_6,
         imgStyle: {
-          height: 120 * 2.5,
+          height: 100 * 2.5,
           width: 120 * 2.5,
           resizeMode: 'contain'
         },

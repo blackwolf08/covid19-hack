@@ -225,10 +225,10 @@ class Welcome extends Component {
       <Block>
         <Block center bottom flex={0.4}>
           <Text h1 center bold>
-            Your Convinience.
+            We are in this.
             <Text h1 primary>
               {' '}
-              First.
+              Together.
             </Text>
           </Text>
           {/* <Text h3 gray2 style={{ marginTop: theme.sizes.padding / 2 }}>
@@ -247,13 +247,9 @@ class Welcome extends Component {
               Signup
             </Text>
           </Button>
-          <Button onPress={() => this.setState({ showTerms: true })}>
-            <Text center caption gray>
-              Terms of service
-            </Text>
-          </Button>
+         
         </Block>
-        {this.renderTermsService()}
+       
       </Block>
     );
   }
