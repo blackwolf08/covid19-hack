@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Covid-19 India",
+    "slug": "COVID19",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "facebookAppId": "164570964803458",
+    "facebookDisplayName": "Covid-19 India",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sunnydhama.covidapp",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1528058450389133~3396166750"
+      }
+    },
+    "android": {
+      "package": "com.sunnydhama.covidapp",
+      "versionCode": 1,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-1528058450389133~3396166750"
+      }
+    }
+  }
+}
