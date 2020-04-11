@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var FETCH_DATA = 'FETCH_DATA';","map":{"version":3,"sources":["C:/Users/neelk/Downloads/covid19-hack-master/covid19-hack-master/actions/types.js"],"names":["FETCH_DATA"],"mappings":"AAAA,OAAO,IAAMA,UAAU,GAAG,YAAnB","sourcesContent":["export const FETCH_DATA = 'FETCH_DATA';\r\n"]},"metadata":{},"sourceType":"module"}
