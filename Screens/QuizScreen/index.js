@@ -7,7 +7,7 @@ import { MultipleSelectPicker } from 'react-native-multi-select-picker'
 import AwesomeButton from "react-native-really-awesome-button";
 
 let sumval=0;
-let grade="F";
+let grade="Not Calculated";
 class SavedScreen extends Component {
   state = {
     selectectedItems: [],
