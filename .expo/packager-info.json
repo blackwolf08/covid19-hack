@@ -1,1 +1,9 @@
-{}
+{
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": "https://7j-euf.sunnydhama.covid19.exp.direct",
+  "packagerNgrokUrl": "https://packager.7j-euf.sunnydhama.covid19.exp.direct",
+  "ngrokPid": 6017,
+  "devToolsPort": 19002,
+  "packagerPort": 19003,
+  "packagerPid": 5992
+}

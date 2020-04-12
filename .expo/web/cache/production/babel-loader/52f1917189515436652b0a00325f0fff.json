@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var FETCH_DATA='FETCH_DATA';","map":{"version":3,"sources":["/media/blackwolf08/Data/New Projects/Covid-19/COVID19/actions/types.js"],"names":["FETCH_DATA"],"mappings":"AAAA,MAAO,IAAMA,CAAAA,UAAU,CAAG,YAAnB","sourcesContent":["export const FETCH_DATA = 'FETCH_DATA';\r\n"]},"metadata":{},"sourceType":"module"}
