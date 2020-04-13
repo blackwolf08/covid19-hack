@@ -78,7 +78,14 @@ const HomeStack = createStackNavigator(
     headerMode: "none",
   }
 );
-
+const LiquidSwipeStack = createStackNavigator(
+  {
+    LiquidSwipeScreen: (props) => <LiquidSwipe {...props} />,
+  },
+  {
+    headerMode: "none",
+  }
+);
 const QuizStack = createStackNavigator(
   {
     QuizScreen: (props) => <QuizScreen {...props} />,
@@ -136,6 +143,7 @@ export const AppNavigator = createAppContainer(
       App: TabNavigator,
       AppIntro: AppIntroStack,
       InitialScreen: InitialStack,
+      LiquidSwipe: LiquidSwipeStack,
     },
     {
       initialRouteName: "InitialScreen",

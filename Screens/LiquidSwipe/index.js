@@ -28,8 +28,8 @@ import ContentFront from "./ContentFront";
 import Button from "./Button";
 
 export const assets = [
-  require("./assets/bravo.gif"),
-  require("./assets/firstPageImage.png"),
+  require("../../assets/cough.gif"),
+  require("../../assets/app_intro_5.png"),
 ];
 
 const { width } = Dimensions.get("window");
@@ -92,8 +92,9 @@ const index = (props) => {
       <ContentBack
         backgroundColor="white"
         source={assets[0]}
-        title1="Prime"
-        title2="Members"
+        title1="NEWS"
+        title2="SYMPTOMS"
+        title3="STATS"
         color="black"
       />
       <PanGestureHandler {...gestureHandler}>
@@ -102,8 +103,8 @@ const index = (props) => {
             <ContentFront
               backgroundColor="#7E89FD"
               source={assets[1]}
-              title1="Special Benefits"
-              title2="FOR YOU"
+              title1="Test Yourself For"
+              title2="COVID-19"
               color="#fff"
             />
           </Weave>
@@ -113,7 +114,7 @@ const index = (props) => {
       <LinearGradient colors={["#FFBF00", "#FFDC73"]}>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("Saved");
+            props.navigation.navigate("App");
             console.log(props);
           }}
         >
@@ -127,7 +128,7 @@ const index = (props) => {
               fontWeight: "bold",
             }}
           >
-            Go PRIME
+            Continue
           </Text>
         </TouchableOpacity>
       </LinearGradient>

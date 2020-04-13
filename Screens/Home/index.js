@@ -14,6 +14,7 @@ import CoronaImage from "../../assets/home.jpg";
 import axios from "axios";
 import { AntDesign } from "@expo/vector-icons";
 import Chart from "./components/Chart";
+import Chatbot from "../Chatbot";
 
 const red = "#FC312F";
 const green = "#29AF62";
@@ -208,6 +209,7 @@ export default class Home extends Component {
             </View>
           </View>
         </ScrollView>
+        <Chatbot />
       </View>
     );
   }

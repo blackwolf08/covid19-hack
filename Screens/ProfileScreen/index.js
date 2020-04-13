@@ -7,6 +7,9 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from "react-native";
+import Chatbot from "../Chatbot";
+import axios from "axios";
+import firebase from "firebase";
 
 class ProfileScreen extends Component {
   state = {
@@ -31,6 +34,28 @@ class ProfileScreen extends Component {
         <TouchableOpacity
           onPress={async () => {
             try {
+              let currUser = firebase.auth().currentUser.uid;
+
+              axios.get("https://covid19sunny.herokuapp.com/?uid=" + currUser);
+              alert("Users Near You Alerted!");
+            } catch (e) {
+              console.log(e);
+            }
+          }}
+        >
+          <Text
+            style={{
+              fontWeight: "bold",
+              fontSize: 20,
+              color: "#1f1f1f",
+            }}
+          >
+            Report Mass Gathering
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={async () => {
+            try {
               this.setState({
                 loading: true,
               });
@@ -51,6 +76,7 @@ class ProfileScreen extends Component {
             Logout
           </Text>
         </TouchableOpacity>
+        <Chatbot />
       </View>
     );
   }

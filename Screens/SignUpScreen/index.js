@@ -50,10 +50,10 @@ export default class SignUp extends Component {
       let res = await firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
-        .catch(function (error) {
+        .catch((error) => {
           this.setState({ errors, loading: false });
           errors.push("password");
-          console.log(error);
+          alert(JSON.stringify(error));
         });
 
       if (Constants.isDevice) {
