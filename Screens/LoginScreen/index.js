@@ -55,7 +55,7 @@ export default class LoginScreen extends Component {
     }
 
     if (!errors.length) {
-      navigation.navigate("LiquidSwipe");
+      navigation.navigate("App");
     }
   }
 

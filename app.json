@@ -24,8 +24,12 @@
       "bundleIdentifier": "com.sunnydhama.covidapp",
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-1528058450389133~3396166750"
+      },
+      "infoPlist": {
+        "UIBackgroundModes": ["location", "fetch"]
       }
     },
+
     "android": {
       "package": "com.sunnydhama.covidapp",
       "versionCode": 1,

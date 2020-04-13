@@ -15,6 +15,8 @@ import axios from "axios";
 import { AntDesign } from "@expo/vector-icons";
 import Chart from "./components/Chart";
 import Chatbot from "../Chatbot";
+import LocationBF from "../../components/LocationBF";
+import Map from "../Map";
 
 const red = "#FC312F";
 const green = "#29AF62";
@@ -98,7 +100,8 @@ export default class Home extends Component {
             />
           }
         >
-          <Image source={CoronaImage} style={styles.headerImage} />
+          {/* <Image source={CoronaImage} style={styles.headerImage} /> */}
+          <Map />
 
           <View style={styles.content}>
             <View style={{ height: height * 0.3 }}>
@@ -185,11 +188,6 @@ export default class Home extends Component {
                   {dailydeceased}
                 </Text>
               </View>
-              <View style={styles.moreInfoInnerConatiner}>
-                <Text style={[styles.moreInfoText, { textAlign: "right" }]}>
-                  Made by Sunny Dhama
-                </Text>
-              </View>
             </View>
             {/* ----------- map starts here -------------- */}
 
@@ -210,6 +208,7 @@ export default class Home extends Component {
           </View>
         </ScrollView>
         <Chatbot />
+        <LocationBF />
       </View>
     );
   }

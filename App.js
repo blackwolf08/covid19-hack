@@ -16,6 +16,15 @@ import { AppNavigator } from "./navigation";
 import { ErrorBoundary } from "./components";
 
 console.disableYellowBox = true;
+import * as TaskManager from "expo-task-manager";
+
+TaskManager.defineTask("UPDATE_LOCATION", ({ data: { locations }, error }) => {
+  if (error) {
+    // check `error.message` for more details.
+    return;
+  }
+  console.log("Received new locations", locations);
+});
 
 function cacheImages(images) {
   return images.map((image) => {
